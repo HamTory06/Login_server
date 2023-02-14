@@ -21,9 +21,9 @@ class MemberService(
         return ResponseEntity.ok().body(user)
     }
 
-    fun join(email: String, password: String): ResponseEntity<Any>{
-        val user: User = memberRepository.findByEmail(email)
-        user?.let { throw BaseException(BaseResponseCode.DUPLICATE_USER) }
-        return ResponseEntity.ok().body(memberRepository.save(User(email,password)))
+    fun join(email: String, password: String, name: String): ResponseEntity<Any>{
+        if (memberRepository.findByEmail(email) != null)
+            throw BaseException(BaseResponseCode.DUPLICATE_USER)
+        return ResponseEntity.ok().body(memberRepository.save(User(email, password, name)))
     }
 }
