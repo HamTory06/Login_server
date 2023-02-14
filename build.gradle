@@ -27,6 +27,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation'org.springframework.boot:spring-boot-starter-tomcat:2.7.5'
 
 }
 
